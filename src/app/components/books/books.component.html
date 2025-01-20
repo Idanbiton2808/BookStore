@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="message" *ngIf="isBookEdited">Book edited seccessfully!</div>
+<div *ngIf="!isSearchUrl && !isProfileUrl; else title">
+  <h2>Book list</h2>
+</div>
+<ng-template #title>
+  <div *ngIf="!isProfileUrl && isSearchUrl">
+    <h2>Search results</h2>
+  </div>
+</ng-template>
+<div class="headline">Click on any book for more options.</div>
+<div class="container">
+  <div #cardContainer  *ngFor="let book of books | filter: searchInput | paginate: {id: 'booksPagination', itemsPerPage: perPageCount, currentPage: currentPage}"
+  [ngClass]="{'my-book-choise': book.isBookCardClicked, 'book-card__container': !book.isBookCardClicked}"
+  (click)="book.isBookCardClicked = !book.isBookCardClicked">
+    <app-book-card [book]="book"></app-book-card>
+  </div>
+</div>
+<div class="pagination-container">
+  <pagination-controls  id="booksPagination"  (pageChange)="currentPage = $event"></pagination-controls>
+</div>

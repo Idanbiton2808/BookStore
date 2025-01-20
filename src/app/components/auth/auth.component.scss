@@ -1,0 +1,157 @@
+.edit-profile-title{
+  display: flex;
+  justify-content: center;
+   margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: #0a5e11;
+
+  @media (min-width: 1000px) {
+    margin-top: 0;
+  }
+}
+
+h2{
+  display: block;
+  color: #0a5e11;
+  margin: 8rem auto;
+  margin-bottom: 2rem;
+
+  @media (min-width: 1000px) {
+    margin: 6rem auto;
+    margin-bottom: 2rem;
+  }
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 2rem auto;
+
+  @media (min-width: 900px) {
+    display: flex;
+    width: 48vw;
+  }
+  .no-wrap {
+    white-space: nowrap; 
+  }
+
+  .form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #0a5e11;
+    border-radius: 5px;
+    padding: 1rem;
+    width: 80vw;
+    background-color: white;
+    box-shadow: 10px 10px 10px rgba(103, 143, 105, 0.5);
+
+    @media (min-width: 900px) {
+      width: 30vw;
+    }
+
+    .signup-inputs-container{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      width: 80vw;
+      background-color: white;
+      border-left: 2px solid #0a5e11;
+      border-right: 2px solid #0a5e11;
+
+      @media (min-width: 900px) {
+        width: 30vw;
+      }
+    }
+
+    .input {
+      display: block;
+      width: 80%;
+      padding: 0.5rem;
+      border: 1px solid #0a5e11;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    .input-invalid{
+      width: 80%;
+      padding: 0.5rem;
+      border: 1px solid red;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    .submit-form {
+      display: block;
+      padding: 0.5rem;
+      color: white;
+      background: #0a5e11;
+      border: none;
+      border-radius: 5px;
+      margin: 1rem auto;
+      cursor: pointer;
+    }
+
+    .submit-form:disabled{
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.inline-block {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.invalid-message {
+  color: #d90429;
+}
+
+a{
+  color:  #0a5e11;
+  text-decoration: none;
+
+  &active, &visited {
+    color:#5804FA;
+  }
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.buttons-container{
+  display: flex;
+  align-items: center;
+
+  .submit-button {
+    display: inline-block;
+    padding: 0.5rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 1rem 2rem;
+    cursor: pointer;
+  }
+
+  .submit-button:disabled{
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.red{
+  background: red;
+}
+
+.purple{
+  background: #5804FA;
+}

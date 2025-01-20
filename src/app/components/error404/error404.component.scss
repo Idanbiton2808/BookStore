@@ -1,0 +1,32 @@
+h1{
+  margin-left: 15vw;
+  margin-top: 10rem;
+  color: #15a868;
+
+  @media (min-width: 350px) {
+    margin-top: 8rem;
+  }
+}
+
+h2{
+  margin-left: 15vw;
+  margin-top: 3rem;
+}
+
+p{
+  margin-left: 15vw;
+
+  a{
+    color: #15a868;
+    font-size: 1.2rem;
+
+    &:active, &:visited{
+      color: #15a868;
+      text-decoration: none;
+    }
+
+    &:hover{
+      font-weight: 700;
+    }
+  }
+}

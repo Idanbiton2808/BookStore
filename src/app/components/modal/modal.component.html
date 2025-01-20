@@ -1,0 +1,5 @@
+<div [ngClass]="{'modal-background': !isModalHidden, 'none': isModalHidden}" (click)="closeModal()">
+  <div class="modal-div" (click)="closeModal($event)">
+    <app-edit-profile-modal></app-edit-profile-modal>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="book-card">
+  <img src={{book.image}} />
+  <p>{{book.title}}</p>
+  <p class="no-wrap">{{book.price}} $</p>
+<button *ngIf="book.isBookCardClicked" class="book-details-button"
+  type="button"
+  (click)="onOpenBookDetails(book)"
+  >Book details</button>
+<button *ngIf="book.isBookCardClicked" id="add-to-cart-button"
+  type="button"
+  [disabled]="!book.isBookCardClicked"
+  (click)="onAddToCart(book)"
+  >Add to cart</button>
+  <p *ngIf="book.isBookCardClicked  && user.isAdmin" class="bold">Admin panel</p>
+  <div class="admin-panel" *ngIf="book.isBookCardClicked  && user.isAdmin">
+    <button type="button" class="edit-book-button" (click)="onOpenModal(book)">Edit book</button>
+    <button type="button" class="edit-book-button orange" (click)="deleteBook(book)">Delete book</button>
+  </div>
+  <!--<div class="message" *ngIf="isBookAddedToCart && book.id === bookAddedId">Book added to cart!</div>-->
+  <div class="message" *ngIf="isBookAddedToCart">Book added to cart!</div>
+</div>

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div *ngIf="(book.id !== ''); else message">
+  <div class="container">
+    <h2>Book details</h2>
+    <div class="book-card__container">
+      <div class="image-container">
+        <p><span class="bold">{{book.title}}</span></p>
+        <img src={{book.image}} />
+      </div>
+      <div class="details-container">
+        <p><span class="bold">Author: </span>{{book.author}}</p>
+        <p><span class="bold">Description: </span>{{book.description}}</p>
+        <p><span class="bold">Price: </span>{{book.price}}</p>
+      </div>
+    </div>
+    <div class="buttons-container">
+      <button type="button" *ngIf="user?.isAdmin" class="edit-profile-button" (click)="onOpenModal(book)">Edit Book</button>
+      <button type="button" class="edit-profile-button" (click)="onAddToCart(book)">Add to cart</button>
+    </div>
+    <div class="message" *ngIf="isBookAddedToCart">Book added seccessfully!</div>
+  </div>
+</div>
+<ng-template #message>
+  <div class="container">
+    <p class="message red">Book not found.</p>
+    <p class="message">Please visit our <a routerLink="/"> homepage </a> and select a book to view more details about it.</p>
+</div>
+</ng-template>
+
+
+
+
+

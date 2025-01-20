@@ -1,0 +1,72 @@
+<h2 *ngIf="isEditingBook">Edit book</h2>
+<h2 *ngIf="isAddingBook">Add a book</h2>
+  <div *ngIf="isEditingBook || isAddingBook; else editUser">
+  <form [formGroup]="editForm">
+    <label for="title">Title</label>
+    <input #title
+      type="text"
+      [ngClass]="this.editForm.get('title')?.touched && this.editForm.get('title')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Title"
+      [value]="isAddingBook? '' : bookToEdit.title"
+      formControlName="title"
+    />
+    <div class="invalid-message" *ngIf="this.editForm.get('title')?.touched &&
+     this.editForm.get('title')?.invalid">{{invalidTitleMessage()}}</div>
+
+     <label for="image">Image</label>
+    <input #image
+      type="text"
+      [ngClass]="this.editForm.get('image')?.touched && this.editForm.get('image')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Image"
+      [value]="isAddingBook? '' : bookToEdit.image"
+      formControlName="image"
+    />
+    <div class="invalid-message" *ngIf="this.editForm.get('image')?.touched &&
+     this.editForm.get('image')?.invalid">{{invalidImageMessage()}}</div>
+
+     <label for="author">Author</label>
+     <input #author
+      type="text"
+      [ngClass]="this.editForm.get('author')?.touched && this.editForm.get('author')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Author"
+      [value]="isAddingBook? '' : bookToEdit.author"
+      formControlName="author"
+    />
+    <div class="invalid-message" *ngIf="this.editForm.get('author')?.touched &&
+     this.editForm.get('author')?.invalid">{{invalidAuthorMessage()}}</div>
+
+     <label for="description">Description</label>
+     <textarea #description
+      rows="3"
+      [ngClass]="this.editForm.get('description')?.touched && this.editForm.get('description')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Description"
+      [value]="isAddingBook? '' : bookToEdit.description"
+      formControlName="description"
+    ></textarea>
+    <div class="invalid-message" *ngIf="this.editForm.get('description')?.touched &&
+     this.editForm.get('description')?.invalid">{{invalidDescriptionMessage()}}</div>
+
+     <label for="price">Price</label>
+     <input #price
+      type="number"
+      min="0"
+      [ngClass]="this.editForm.get('price')?.touched && this.editForm.get('price')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Price"
+      [value]="isAddingBook? '' : bookToEdit.price"
+      formControlName="price"
+    />
+    <div class="invalid-message" *ngIf="this.editForm.get('price')?.touched &&
+      this.editForm.get('price')?.invalid">{{invalidPriceMessage()}}
+    </div>
+  </form>
+</div>
+<ng-template #editUser>
+  <app-auth></app-auth>
+</ng-template>
+<div class="buttons-container">
+  <button *ngIf="isEditingBook" [disabled]="editForm.invalid" type="submit" class="submit-button" (click)="onEditBook(editForm)">Save changes</button>
+  <button *ngIf="isAddingBook" [disabled]="editForm.invalid" type="submit" class="submit-button" (click)="onAddBook(editForm)">Add book</button>
+  <button *ngIf="isEditingBook || isAddingBook" type="button" class="exit-button" (click)="exitModal(editForm)">Exit without saving</button>
+</div>
+
+

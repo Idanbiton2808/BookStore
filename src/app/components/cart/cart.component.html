@@ -1,0 +1,27 @@
+<app-header></app-header>
+<h2>My cart</h2>
+<div class="my-cart-empty" *ngIf="isCartEmpty">Your cart is empty. You can add a book to your cart at our
+  <a [routerLink]="['/']">homepage</a>
+   selecting the book you want, and than press "Add to cart".
+</div>
+<div class="headline" *ngIf="!isCartEmpty">Click on the "Checkout" button to continue.</div>
+<div class="container">
+  <div  #cardContainer  *ngFor="let book of myCart"
+  class="book-card-container"
+   (click)="book.isBookCardClicked = !book.isBookCardClicked">
+   <app-cart-book-card 
+  [book]="book"
+  (cartUpdated)="refreshCart()"></app-cart-book-card>
+  </div>
+  <p *ngIf="!isCartEmpty" class="bold">Total price: <span class="price">{{totalPrice  | number: '0.0-3'}} $</span></p>
+  <div class="checkout-container">
+    <button  class="Checkout-button" [disabled]="isCartEmpty" (click)="onCheckout()">Checkout</button>
+    <div *ngIf="isCheckoutSuccessful" class='headline center'>
+      Congratulations! checkout completed seccessfully.
+      </div>
+      <div *ngIf="isCheckoutClicked && !isCheckoutSuccessful && !isCartEmpty" Class='my-cart-empty center'>
+        You need to <a routerLink="/login">login</a> in order to checkout.
+      </div>
+  </div>
+</div>
+

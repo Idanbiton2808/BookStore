@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="container">
+  <h2 *ngIf="isSignupUrl">Sign up</h2>
+  <h2 *ngIf="isLoginUrl">Login</h2>
+  <h2 class="edit-profile-title" *ngIf="!isSignupUrl && !isLoginUrl">Edit profile</h2>
+   <form class="form" [formGroup]="signupForm">
+    <input
+      type="text"
+      [ngClass]="this.signupForm.get('username')?.touched && this.signupForm.get('username')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Username"
+      formControlName="username"
+    />
+    <div class="invalid-message"  *ngIf="signupForm.get('username')?.touched && signupForm.get('username')?.invalid">{{invalidUsernameMessage()}}</div>
+
+    <input
+      type="password"
+      [ngClass]="this.signupForm.get('password')?.touched && this.signupForm.get('password')?.invalid? 'input-invalid' : 'input'"
+      placeholder="Password"
+      formControlName="password"
+    />
+    <div class="invalid-message" *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">{{invalidPasswordMessage()}}</div>
+
+    <div class="signup-inputs-container" *ngIf="!isLoginUrl ">
+      <input
+        type="password"
+        [ngClass]="this.signupForm.get('repeatPassword')?.touched && this.signupForm.get('repeatPassword')?.invalid? 'input-invalid' : 'input'"
+        placeholder="Repeat password"
+        formControlName="repeatPassword"
+      />
+      <div class="invalid-message"
+      *ngIf="(signupForm.get('repeatPassword')?.touched && signupForm.get('repeatPassword')?.invalid) ||
+      (signupForm.get('repeatPassword')?.touched &&
+      (signupForm.get('password') !== signupForm.get('repeatPassword')))">{{passwordMismatchMessage()}}</div>
+
+      <input
+        type="email"
+        [ngClass]="this.signupForm.get('email')?.touched && this.signupForm.get('email')?.invalid? 'input-invalid' : 'input'"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <div class="invalid-message" *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">{{invalidEmailMessage()}}</div>
+
+      <input
+        type="text"
+        [ngClass]="this.signupForm.get('name')?.touched && this.signupForm.get('name')?.invalid? 'input-invalid' : 'input'"
+        placeholder="Name"
+        formControlName="name"
+      />
+      <div class="invalid-message" *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">{{invalidUsernameMessage()}}</div>
+    </div>
+      <div *ngIf="isSignupUrl">
+    <button type="submit" [disabled]="signupForm.invalid" class="submit-form" (click)="onSubmitSignup()">Sign up</button>
+    <p>Already a member?
+      <a routerLink="/login">Login now</a>
+    </p>
+  </div>
+
+  <div *ngIf="isLoginUrl">
+    <div class="invalid-message" *ngIf="loginFailed">Invalid username/password combination</div>
+    <button type="submit" [disabled]="signupForm.invalid" class="submit-form purple" (click)="onSubmitLogin()">Login</button>
+    <p>Doesn't have an account?
+      <a class ="no-wrap" routerLink="/signup">Signup now</a>
+    </p>
+  </div>
+  </form>
+  <div *ngIf="!isSignupUrl && !isLoginUrl" class="buttons-container">
+    <button [disabled]="signupForm.invalid"  class="submit-button purple" (click)="onEditProfile(signupForm)">Save profile changes</button>
+    <button type="button" class="submit-button red" (click)="exitModal(signupForm)">Exit without saving</button>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<header class="header">
+  <div class="container">
+  <div class="nav-container">
+    <a routerLink="/home"><img class="search-button" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8BAAIAAADW1taurq5zcnN1dXbPz8+4uLnh4eHa2tqZmZkrKyvc3Nzq6urg4OBlZWVkZGQWFRZqampTU1Pv7++Pj4/t7e0MCwxFRUU9PT75+fkJCAq8vLw6OjtBQUKIiIl+fn5aWlseHR4tLS2goKBOTk8ZGBmNjY7+PLjbAAAFDklEQVR4nO2d7VriMBCFa1QQlWU/xG8UUXf3/q9wKW0wadM20yaZafe8P5FH88qczGBKzTIAAAAAAACqrJdr7iVEZXGjlHp74l5GPFZ7vxOldtzriMZy75ejvnOvJBKXpeD+VZym4lEwV/zFvZoIrL4Ec8Uf3OsJzqUpOEXFiuD0CnVZFZzadrM0Nxk1QUVzF32/naCiKfhzkV0ZitPI4sos0cX+AVNxCjuqlcFvh4euJlWoZoneL8oH2wr17nTexELim5KlnUFNo+J6plq4vkgu0EUtg5qmLD7UG6fZQtUmtUEHl/UMatyKFy1+RaGnVmjn0l2iBc5CfesyVMvEDq0sXZvMF64d9abTcJ7WoRVHm7BxKI7K0CzRZ5egS3FMhq0Z1NSyqA3rjUKcYWObsKnuqKWher+w2WyVMMOWNmFTUdSGH9XnbYQZepVogV2o2vC6+rQLWYYNo5obU3E2EkPPDGpMRTUKQ+8MakzFkxEYEjKouaqO26INzRJ99hOsK0o27BzV3FQUBRta7+j9BauKcg17ZFBjKYo1JLYJG1NRqiG5TdgYikINB5RogdEXRRp2vKP34ahYn7wFGA7KoEYrqofqV/gNB2ZQUygqVfu7KLvh4AxqPg9v6Ge1x7kNg5Rowenb73PHn32ZDXuOahR4DZ2HL4FhNSS9o+8Lp2HADLbAaBioTXTBZxisTXTAZrhKsMkc4DJcpSnRjM3Q4/AlFDyGqTKYw2KYpk2UcBgmGNUMGAxTlmjGYZhkVDNIbpg0gzmpDRONagaJDRNnMCetYa/Dl4EkNUzbJkqOhqfxf1bvw5dB6AveElxVnLpNlBwNoysmbxMlc/fFmuFhyeCBRNeGM7QJzSbJFf4BDl/6k+Lyd64MlsRXTD+qVYityJhBTdxP2zCXaEHMT9vwtQmLeIWa4vDFi1iFyjSquYijKCKDmhhZZG8TNuEVBbQJm9CFmuzwxZ+wO2q6wxcCIRUTHr5QCKcoLoOaUFlcSGoTNmF2VCGjmpsQimJLtGB4oQoa1dwMVRQ1qrkZtqMKG9XcDMmi8Axq+hcqx+FLL/oWqshRzU0/RZ7Dl570URTfJmzoWRQ8qrmh7qiiRzU3NMWRtAkbSqGyHr70x3+7GcGo5sZXcRSjmhu/LI4ygxqfLJolejI2QZ9XcYRtwqYri2IOX/rTXqgjG9XctCmOblRz05zF0WdQ06Q46jZh4y5Us038Gbege0e1RrX5+lvO3d3d+sjTHtZVk/isKVo3MW6+K+NM2B3/N7OXksc9rwUPe3b3xguWK66fDcFmlPoQ9Tqet9wi01z1PotbL8H82VtuK4Mz5bfs/IPvP70Nazc6YOTVe9WPmV+RHn4d3FoGni/hYdW7iRt+ZHPlXdLcWga+hkp95heJdyHYsHPtN/mz15vPqwq3X/y9fVViDdX77weLQ1d8LHl52Z15fbeZYMP6PUIKngo8v9v5CA1pwJADGNKAIQcwpAFDDmBIA4YcwJAGDDmAIQ0YcgBDGjDkAIY0YMgBDGnAkAMY0oAhBzCkAUMOYEgDhhzAkAYMOYAhDRhyAEMaMOQAhjRgyAEMacCQAxjSgCEHMKQBQw5gSAOGHMCQBgw5gCENGHIAQxow5ACGNGDIAQxp/EeGZ3KIYth9H5GUnMQwFAgMYVjyV7DhbRDDufdtp1IT7J9Y/1IiHVXA/5635e4NDWxDCWbZ0+JUHgtRN3IEAAAAAACD+AemFFDreSsO4QAAAABJRU5ErkJggg=="/></a>
+    <a   id="cart" routerLink="/cart" class="cart-container">
+      <img  class="search-button" src="https://e7.pngegg.com/pngimages/833/426/png-clipart-shopping-cart-icon-shopping-cart-black-design.png"/>
+    </a>
+  </div>
+  <div class="user-nav" *ngIf="!isUserLoggedIn(); else userConnected">
+    <a routerLink="/signup">Sign up</a>
+    <a routerLink="/login">Login</a>
+  </div>
+    <ng-template #userConnected>
+      <div class="user-nav">
+        <a *ngIf="!user.isAdmin" routerLink="/profile" class="profile-link">Profile</a>
+        <a *ngIf="user.isAdmin" routerLink="/admin" class="profile-link">Admin</a>
+        <a routerLink="/login"  (click)="logout()"><img src="https://i.pinimg.com/474x/d7/93/1d/d7931d40b257ce7097ad06f1eda17124.jpg"/></a>
+      </div>
+    </ng-template>
+  </div>
+  <div class="search">
+    <form (ngSubmit)="showResults(search.value)">
+      <input #search type="search" name="search" id="searchInput" [(ngModel)]="searchInput"  placeholder="I'm looking for..."/>
+    </form>
+    <a class="search-button" [routerLink]="['/search']" [queryParams]="{ searchText: searchInput }">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8LB-c6fAsR5xfKxITSHBs-Zl6cGkTOnZxmA&s"/>
+    </a>
+  </div>
+</header>

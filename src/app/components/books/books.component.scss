@@ -1,0 +1,139 @@
+h2{
+  margin-top: 8rem;
+  margin-left: 15vw;
+  margin-bottom: 2rem;
+  color: #0a5e11;
+
+  @media (min-width: 1000px) {
+    margin-top: 6rem;
+  }
+}
+
+.headline{
+  display:none;
+
+  @media(min-width: 350px){ 
+    display:block;
+    margin-left: 15vw;
+    font-size: 1rem;
+    
+  }
+
+  @media (min-width: 700px) {
+    display:block;
+    margin-left: 15vw;
+    font-size: 1.2rem;
+  }
+}
+
+.container{
+  width:90vw;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding-left: 0;
+
+  @media (min-width: 700px) {
+    width:80vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 0.5rem;
+    margin: 0 auto;
+  }
+
+  .book-card__container{
+    width: 100%;
+    max-width: 100vw;
+    min-height: 60vh;
+    border: 2px solid #0a5e11;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(103, 171, 115, 0.723);
+    transition: background-color 0.4s ease;
+
+    @media (min-width: 350px) {
+      max-width: 20vw;
+      min-width: 10rem;
+      margin: 2rem auto;
+      height: fit-content;
+      min-height: 250px;
+    }
+
+    &:hover{
+      background-color: rgba(126, 201, 130, 0.5);
+      cursor: pointer;
+    }
+  }
+
+  .my-book-choise{
+    width: 100%;
+    max-width: 100vw;
+    border: 2px solid #1e281f;
+    border-radius: 10px;
+    background-color: rgba(116, 221, 151, 0.627);
+    padding: 1rem;
+    box-shadow: 10px 10px 10px rgba(146, 132, 237, 0.5);
+
+    &:hover{
+      cursor: pointer;
+    }
+
+    @media (min-width: 350px) {
+      max-width: 20vw;
+      min-width: 10rem;
+      margin: 2rem auto;
+    }
+  }
+}
+
+.none {
+  display:none;
+}
+
+.bold{
+  font-weight: 700;
+}
+
+p{
+  margin: 1rem;
+}
+
+.pagination-container{
+  display: flex;
+  width: 90vw;
+  border: 3px solid #b0b4b1;
+  border-radius: 10px;
+  margin: 2rem auto;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+  font-weight: 600;
+  background-color: #0a5e11;
+  
+
+  @media (min-width: 350px) {
+    width: 74vw;
+    margin: 2rem auto;
+    padding-right: 1rem;
+  }
+}
+
+.center{
+  display:block;
+  margin: 1rem auto;
+}
+
+.message{
+  display:flex;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color:#15a868;
+  text-align: center;
+}
+
+
+
+

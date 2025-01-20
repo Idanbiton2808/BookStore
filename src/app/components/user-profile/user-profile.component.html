@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class="container margin">
+  <h2>{{user.name}}'s profile</h2>
+  <div class="content-container">
+    <div class="message" *ngIf="isProfileEdited">Profile edited seccessfully!</div>
+    <div class="message" *ngIf="isBookAddedToList">A new book added seccessfully!</div>
+    <p><span class="bold">Username: </span>{{user.username}}</p>
+    <p><span class="bold">My cart: </span>Click <a routerLink="/cart">here</a> to view & manage cart</p>
+    <div class="buttons-container">
+      <button type="button" class="edit-profile-button" (click)="onOpenModal(undefined ,user, false)">Edit profile</button>
+      <button type="button" class="edit-profile-button" (click)="logout()">Logout</button>
+      <button type="button" class="edit-profile-button delete-button" (click)="deleteUser()">Delete profile</button>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="user.isAdmin">
+  <h2>Admin panel</h2>
+  <div class="content-container buttons-container">
+    <button type="button" class="edit-profile-button" (click)="onOpenModal(undefined, undefined, true)">Add a book</button>
+  </div>
+  <div *ngIf="user.isAdmin">
+    <app-books></app-books>
+  </div>
+</div>
+
