@@ -28,4 +28,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 =======
 Book Store - Full Stack Project
->>>>>>> 9adac37a151809e67ce14e55c193bd2bcadb3353
+This repository contains the BookStore application, a full-stack project developed using Angular for the frontend and ASP.NET Core for the backend.
+
+Features
+--User authentication and role-based access (Admin and User).
+--Book browsing with detailed descriptions and images.
+--Shopping cart functionality (add, remove, update quantities).
+--Admin dashboard for managing books (add, edit, delete).
+--Responsive design for seamless use on various devices.
+--RESTful API for data management and communication.
